@@ -1,15 +1,21 @@
 apply plugin: 'java'
+apply from: '../variable.gradle'
+
+ext {
+    PUBLISH_ARTIFACT_ID = 'lancet-weaver'
+    PUBLISH_ARTIFACT_NAME = 'Lancet Weaver'
+}
+
+apply from: "${rootDir}/scripts/publish-module.gradle"
 
 dependencies {
-    testCompile "junit:junit:4.12"
-    testCompile 'com.squareup.okio:okio:1.11.0'
-    testCompile 'org.assertj:assertj-core:3.6.2'
-
     compileClasspath "com.android.tools.build:gradle:$android_tools_version"
-    compile project(':lancet-base')
-    compile gradleApi()
     compileClasspath "com.google.guava:guava:$guava_version"
-    compile "org.ow2.asm:asm-all:$asm_version"
+
+    implementation project(":lancet-base")
+    implementation gradleApi()
+    implementation "org.ow2.asm:asm:$asm_version"
+    implementation "org.ow2.asm:asm-commons:$asm_version"
 }
 
 sourceCompatibility = "1.8"

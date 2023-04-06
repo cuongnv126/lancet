@@ -1,0 +1,16 @@
+ext {
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+    lancet_group = 'org.cuongnv.lancet'
+    lancet_version = '1.0.10'
+    //lancet_version = '0.0.1.8-SNAPSHOT'
+
+    asm_version = '9.0'
+    //android_tools_version = '2.4.0-alpha6'
+    android_tools_version = '3.3.2'
+    guava_version = '31.1-android'
+
+    PUBLISH_GROUP_ID = lancet_group
+    PUBLISH_VERSION = lancet_version
+}

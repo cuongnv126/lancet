@@ -1,7 +1,15 @@
 apply plugin: 'java'
+apply from: '../variable.gradle'
+
+ext {
+    PUBLISH_ARTIFACT_ID = 'lancet-base'
+    PUBLISH_ARTIFACT_NAME = 'Lancet Base'
+}
+
+apply from: "${rootDir}/scripts/publish-module.gradle"
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
 
 sourceCompatibility = "1.7"

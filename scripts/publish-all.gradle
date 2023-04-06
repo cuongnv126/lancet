@@ -1,0 +1,11 @@
+task publishAllLancet {
+    doLast {
+        def modules = ["lancet-base", "lancet-weaver", "lancet-plugin"]
+
+        for (module in modules) {
+            def script = "./gradlew :$module:publishReleasePublicationToSonatypeRepository"
+            println("[TASK] executing $script")
+            script.execute().waitFor()
+        }
+    }
+}

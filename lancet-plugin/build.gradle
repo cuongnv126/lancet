@@ -1,13 +1,20 @@
 apply plugin: 'java'
+apply from: '../variable.gradle'
+
+ext {
+    PUBLISH_ARTIFACT_ID = 'lancet-plugin'
+    PUBLISH_ARTIFACT_NAME = 'Lancet Plugin'
+}
+
+apply from: "${rootDir}/scripts/publish-module.gradle"
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile gradleApi()
-    compileOnly "com.android.tools.build:gradle:$android_tools_version"
-    compile "com.google.code.gson:gson:2.8.0"
-    compile project(':lancet-weaver')
-    testCompile gradleTestKit()
-    testCompile 'junit:junit:4.12'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation gradleApi()
+    implementation "com.android.tools.build:gradle:$android_tools_version"
+    implementation "com.google.code.gson:gson:2.10.1"
+    implementation project(":lancet-weaver")
+    implementation project(":lancet-base")
 }
 
 sourceCompatibility = "1.8"
@@ -26,5 +33,5 @@ task createClasspathManifest {
 }
 
 dependencies {
-    testRuntime files(createClasspathManifest)
+//    testRuntime files(createClasspathManifest)
 }
