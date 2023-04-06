@@ -1,6 +1,7 @@
 package me.ele.lancet.weaver.internal.asm.classvisitor.methodvisitor;
 
 
+import me.ele.lancet.weaver.internal.util.AsmUtil;
 import me.ele.lancet.weaver.internal.util.PrimitiveUtil;
 import org.objectweb.asm.*;
 
@@ -13,7 +14,7 @@ public class AutoUnboxMethodVisitor extends MethodVisitor {
     private String lastOwner;
 
     public AutoUnboxMethodVisitor(MethodVisitor methodVisitor) {
-        super(Opcodes.ASM5, methodVisitor);
+        super(AsmUtil.ASM_VERSION, methodVisitor);
     }
 
     public void markBoxed() {

@@ -1,6 +1,7 @@
 package me.ele.lancet.weaver.internal.asm.classvisitor.methodvisitor;
 
 import me.ele.lancet.weaver.internal.asm.MethodChain;
+import me.ele.lancet.weaver.internal.util.AsmUtil;
 import me.ele.lancet.weaver.internal.util.TypeUtil;
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.MethodVisitor;
@@ -27,7 +28,7 @@ public class ProxyMethodVisitor extends MethodVisitor {
     private final MethodChain chain;
 
     public ProxyMethodVisitor(MethodChain chain, MethodVisitor mv, Map<String, MethodChain.Invoker> invokerMap, Map<String, List<ProxyInfo>> matchMap, String className, String name, ClassCollector classCollector) {
-        super(Opcodes.ASM5, mv);
+        super(AsmUtil.ASM_VERSION, mv);
         this.chain = chain;
         this.invokerMap = invokerMap;
         this.matchMap = matchMap;

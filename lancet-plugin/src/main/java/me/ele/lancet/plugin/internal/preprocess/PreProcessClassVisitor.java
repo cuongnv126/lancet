@@ -4,6 +4,8 @@ import me.ele.lancet.base.annotations.*;
 import me.ele.lancet.weaver.internal.graph.ClassEntity;
 import me.ele.lancet.weaver.internal.graph.FieldEntity;
 import me.ele.lancet.weaver.internal.graph.MethodEntity;
+import me.ele.lancet.weaver.internal.util.AsmUtil;
+
 import org.objectweb.asm.*;
 
 import java.util.Arrays;
@@ -44,7 +46,7 @@ public class PreProcessClassVisitor extends ClassVisitor {
     public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
         entity.methods.add(new MethodEntity(access, name, desc));
         if (!isHookClass) {
-            return new MethodVisitor(Opcodes.ASM5) {
+            return new MethodVisitor(AsmUtil.ASM_VERSION) {
                 @Override
                 public AnnotationVisitor visitAnnotation(String annoDesc, boolean visible) {
                     judge(annoDesc);

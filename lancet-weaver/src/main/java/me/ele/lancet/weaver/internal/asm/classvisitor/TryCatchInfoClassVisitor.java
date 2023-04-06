@@ -10,6 +10,7 @@ import me.ele.lancet.weaver.internal.asm.LinkedClassVisitor;
 import me.ele.lancet.weaver.internal.asm.classvisitor.methodvisitor.TryCatchMethodVisitor;
 import me.ele.lancet.weaver.internal.entity.TryCatchInfo;
 import me.ele.lancet.weaver.internal.log.Log;
+import me.ele.lancet.weaver.internal.util.AsmUtil;
 
 
 /**
@@ -40,7 +41,7 @@ public class TryCatchInfoClassVisitor extends LinkedClassVisitor {
         MethodVisitor mv = super.visitMethod(access, name, desc, signature, exceptions);
         if (matches != null && matches.size() > 0) {
             Log.tag("transform").i("visit TryCatch method: "+className+"."+name+" "+desc);
-            mv = new TryCatchMethodVisitor(Opcodes.ASM5, mv, matches);
+            mv = new TryCatchMethodVisitor(AsmUtil.ASM_VERSION, mv, matches);
         }
         return mv;
     }

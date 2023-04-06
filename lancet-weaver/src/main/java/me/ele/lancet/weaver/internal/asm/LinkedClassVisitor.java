@@ -1,6 +1,7 @@
 package me.ele.lancet.weaver.internal.asm;
 
 import me.ele.lancet.weaver.internal.graph.Graph;
+import me.ele.lancet.weaver.internal.util.AsmUtil;
 import me.ele.lancet.weaver.internal.util.Bitset;
 import org.objectweb.asm.ClassVisitor;
 import org.objectweb.asm.MethodVisitor;
@@ -18,7 +19,7 @@ public class LinkedClassVisitor extends ClassVisitor {
 
 
     public LinkedClassVisitor() {
-        super(Opcodes.ASM5);
+        super(AsmUtil.ASM_VERSION);
     }
 
     public void setContext(ClassContext context) {

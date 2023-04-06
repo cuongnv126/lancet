@@ -8,6 +8,7 @@ import me.ele.lancet.weaver.internal.graph.FieldEntity;
 import me.ele.lancet.weaver.internal.graph.Graph;
 import me.ele.lancet.weaver.internal.log.Log;
 import me.ele.lancet.weaver.internal.parser.AopMethodAdjuster;
+import me.ele.lancet.weaver.internal.util.AsmUtil;
 import me.ele.lancet.weaver.internal.util.Bitset;
 import me.ele.lancet.weaver.internal.util.PrimitiveUtil;
 import me.ele.lancet.weaver.internal.util.TypeUtil;
@@ -87,7 +88,7 @@ public class MethodChain {
         head.createIfNeed(base, bitset, exs);
 
         MethodVisitor mv = cv.visitMethod(access, name, desc, null, exs);
-        node.accept(new MethodVisitor(Opcodes.ASM5, new AutoUnboxMethodVisitor(mv)) {
+        node.accept(new MethodVisitor(AsmUtil.ASM_VERSION, new AutoUnboxMethodVisitor(mv)) {
 
             @Override
             public void visitMethodInsn(int opcode, String owner, String name, String desc, boolean itf) {
