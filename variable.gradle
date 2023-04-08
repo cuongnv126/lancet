@@ -3,7 +3,7 @@ ext {
     properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
     lancet_group = 'org.cuongnv.lancet'
-    lancet_version = '1.0.16'
+    lancet_version = '1.0.17'
     //lancet_version = '0.0.1.8-SNAPSHOT'
 
     asm_version = '9.0'
