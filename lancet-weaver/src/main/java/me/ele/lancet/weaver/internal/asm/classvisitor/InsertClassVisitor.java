@@ -11,6 +11,7 @@ import me.ele.lancet.weaver.internal.asm.ClassTransform;
 import me.ele.lancet.weaver.internal.asm.LinkedClassVisitor;
 import me.ele.lancet.weaver.internal.entity.InsertInfo;
 import me.ele.lancet.weaver.internal.log.Log;
+import me.ele.lancet.weaver.internal.util.NamedUtil;
 import me.ele.lancet.weaver.internal.util.TypeUtil;
 
 /**
@@ -55,7 +56,7 @@ public class InsertClassVisitor extends LinkedClassVisitor {
                 String staticDesc = TypeUtil.descToStatic(access, desc, getContext().name);
                 ClassVisitor cv = getClassCollector().getInnerClassVisitor(ClassTransform.AID_INNER_CLASS_NAME);
                 String owner = getClassCollector().getCanonicalName(ClassTransform.AID_INNER_CLASS_NAME);
-                String newName = name + "$___twin___";
+                String newName = NamedUtil.safeName(name) + "$___twin___";
                 int newAccess = (access & ~(Opcodes.ACC_PROTECTED | Opcodes.ACC_PUBLIC)) | Opcodes.ACC_PRIVATE;
 
                 MethodChain chain = getContext().getChain();
