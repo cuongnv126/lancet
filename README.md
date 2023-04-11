@@ -20,7 +20,7 @@ Firstly, add following code in root **build.gradle** of your project.
 ```groovy
 dependencies {
     classpath 'com.android.tools.build:gradle:3.3.2'
-    classpath 'org.cuongnv.lancet:lancet-plugin:1.0.10'
+    classpath 'org.cuongnv.lancet:lancet-plugin:1.0.17'
 }
 ```
 Tips: Lancet 1.0.5 and above only supports gradle 3.3.2 and above.
@@ -31,7 +31,7 @@ And then, add following code in your **application module's build.gradle**
 apply plugin: 'org.cuongnv.lancet'
 
 dependencies {
-    provided 'org.cuongnv.lancet:lancet-base:1.0.10'
+    provided 'org.cuongnv.lancet:lancet-base:1.0.17'
 }
 ```
 
