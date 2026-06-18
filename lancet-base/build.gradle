@@ -6,7 +6,7 @@ ext {
     PUBLISH_ARTIFACT_NAME = 'Lancet Base'
 }
 
-apply from: "${rootDir}/scripts/publish-module.gradle"
+//apply from: "${rootDir}/scripts/publish-module.gradle"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])

@@ -9,8 +9,8 @@ ext {
 apply from: "${rootDir}/scripts/publish-module.gradle"
 
 dependencies {
-    compileClasspath "com.android.tools.build:gradle:$android_tools_version"
-    compileClasspath "com.google.guava:guava:$guava_version"
+    compileClasspath("com.android.tools.build:gradle:$android_tools_version")
+    compileClasspath("com.google.guava:guava:$guava_version")
 
     implementation project(":lancet-base")
     implementation gradleApi()
